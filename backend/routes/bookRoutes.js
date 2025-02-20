@@ -9,3 +9,4 @@ router.post("/",books.createBooks);
 router.put("/:id",books.updateBooks);
 router.delete("/:id",books.deleteBooks);
 
+module.exports=router;

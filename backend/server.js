@@ -1,14 +1,15 @@
 const express=require("express")
 const mongoose=require("mongoose")
 require('dotenv').config()
-
+const bookRoutes=require("./routes/bookRoutes")
 //to execute express
 const app=express()
-
+const cors = require('cors');
+app.use(cors()); 
 app.use(express.json()); 
 
 //routes
-
+app.use("/api/books",bookRoutes)
 
 
 const port=process.env.PORT ||4000

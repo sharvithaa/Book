@@ -1,9 +1,9 @@
-const model=require('../models/productmodel')
+const Book=require('../models/bookSchema')
 
 
 exports.getAllBooks=async(req,res)=>{
     try{
-        const books=await model.find({});
+        const books=await Book.find({});
         res.status(200).json({status:"Get books",data:books});
     }
     catch(err)
@@ -15,7 +15,7 @@ exports.getAllBooks=async(req,res)=>{
 
 exports.getBooks=async(req,res)=>{
     try{
-        const book=await model.findById(req.params.id);
+        const book=await Book.findById(req.params.id);
         if(!book)
         {
             res.status(404).json({status:"failed",message:"Book not found"});
@@ -30,9 +30,9 @@ exports.getBooks=async(req,res)=>{
 }
 
 exports.createBooks=async(req,res)=> {
-    const bookData=req.body();
+    const bookData=req.body;
     try{
-       const newBook=new model(bookData);
+       const newBook=new Book(bookData);
        await newBook.save();
        res.status(200).json({status:"Created sucessfully",data:bookData });
     }
@@ -45,7 +45,7 @@ exports.createBooks=async(req,res)=> {
 
 exports.updateBooks=async(req,res)=>{
     try{
-        const update=await model.updateOne({id:req.params.id,$set:req.body});
+        const update=await Book.updateOne({id:req.params.id,$set:req.body});
         res.status(200).json({status:"Updated",data:update});
     }
     catch(err)
@@ -57,7 +57,7 @@ exports.updateBooks=async(req,res)=>{
 
 exports.deleteBooks=async(req,res)=>{
     try {
-        const deletedProduct = await model.findByIdAndDelete(req.params.id);
+        const deletedProduct = await Book.findByIdAndDelete(req.params.id);
         if (!deletedProduct) {
             return res.status(404).json({ status: "failed", message: "Product not found" });
         }
