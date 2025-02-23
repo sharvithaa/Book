@@ -16,7 +16,7 @@ const port=process.env.PORT ||4000
 app.listen(port,()=>console.log("Server is running on",port))
 
 //DB connection
-const connectionString=process.env.MONGO_URI||"mongodb+srv://Admin:jzBQZUGg5TT6bwsc@cluster0.h4dtf.mongodb.net/"
+const connectionString=process.env.MONGO_URI
 mongoose.connect(connectionString, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
