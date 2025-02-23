@@ -8,6 +8,7 @@ import { BookListComponent } from './components/book-list/book-list.component';
 import { BookDetailComponent } from './components/book-detail/book-detail.component';
 import { BookFormComponent } from './components/book-form/book-form.component';
 import { HttpClientModule } from '@angular/common/http';
+import { FormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,8 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserModule,
     AppRoutingModule,
     NoopAnimationsModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

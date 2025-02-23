@@ -1,1 +1,16 @@
-<p>book-form works!</p>
+<h2>Add a New Book</h2>
+<form (ngSubmit)="saveBook()">
+  <label>Title:</label>
+  <input type="text" [(ngModel)]="title" name="title" required />
+
+  <label>Author:</label>
+  <input type="text" [(ngModel)]="author" name="author" required />
+
+  <label>Genre:</label>
+  <input type="text" [(ngModel)]="genre" name="genre" required />
+
+  <label>Published Year:</label>
+  <input type="number" [(ngModel)]="publishedYear" name="publishedYear" required />
+
+  <button type="submit">Save Book</button>
+</form>
