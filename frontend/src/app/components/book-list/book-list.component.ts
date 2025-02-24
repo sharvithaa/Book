@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { Book } from 'src/app/models/book';
 import { BookService } from 'src/app/services/book.service';
@@ -7,25 +8,30 @@ import { BookService } from 'src/app/services/book.service';
   templateUrl: './book-list.component.html',
   styleUrls: ['./book-list.component.css']
 })
-export class BookListComponent implements OnInit{
-  books: Book[] = [];
+export class BookListComponent {
+  books: any[] = []; // Ensure this is an array
 
-  constructor(private bookService: BookService) {}
+  constructor(private http: HttpClient) {}
 
-  ngOnInit(): void {
-    this.loadBooks();
-  }
-
-  loadBooks() {
-    this.bookService.getBooks().subscribe(data => {
-      this.books = data;
-    });
+  ngOnInit() {
+    this.http.get<any>('http://localhost:4000/api/books').subscribe(
+      response => {
+        console.log("API Response:", response); // Debugging
+        if (response && response.data) {  // ✅ Fix: Use `data` instead of `books`
+          this.books = response.data;
+        } else {
+          console.error("Unexpected API Response Format:", response);
+        }
+      },
+      error => {
+        console.error("API Error:", error); // ✅ Log API error
+      }
+    );
   }
 
   deleteBook(id: string) {
-    this.bookService.deleteBook(id).subscribe(() => {
-      this.loadBooks();
+    this.http.delete(`http://localhost:4000/api/books/${id}`).subscribe(() => {
+      this.books = this.books.filter(book => book._id !== id);
     });
   }
-
 }

@@ -1,85 +1,64 @@
-  /* Navbar Styling */
-.navbar {
-    background-color: #1E3A8A; /* Dark blue */
-    color: white;
-    padding: 16px;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-/* Navigation Links */
-.nav-links {
-    display: flex;
-    gap: 24px; /* Space between links */
-    display: flex;
-    justify-content:center; 
-    align-items:center
-}
-
-/* Link Styling */
-.nav-item {
-    color: white;
-    text-decoration: none;
-    font-size: 16px;
-    transition: color 0.3s ease;
-}
-
-/* Hover Effect */
-.nav-item:hover {
-    color: #FAF3E0; /* Light cream color */
-}
-
-
-/* Main Container */
 .container {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 24px;
+    /* display: grid;
+    grid-template-columns: repeat(3,1fr); */
+    padding: 20px;
+  }
+  
+  ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid; /* Make <ul> a grid container */
+    grid-template-columns: repeat(3, 1fr); /* Three columns for books */
+    gap: 20px; /* Space between books */
+    width: 100%;
 }
 
-/* Left Side: Text Content */
-.text-content {
-    width: 50%;
-    padding: 24px;
-}
-
-.text-content h1 {
-    font-size: 36px;
-    font-weight: bold;
-    margin-bottom: 10px;
-}
-
-.text-content p {
-    font-size: 18px;
-    margin-bottom: 20px;
-}
-
-/* Add Book Button */
-.add-book-btn {
-    background-color: #FACC15; /* Yellow */
-    color:black;
-    padding: 12px 24px;
-    display: inline-block;
-    font-size: 16px;
+li {
+    background: #f9f9f9;
+    border: 1px solid #ddd;
     border-radius: 8px;
-    text-decoration: none;
-    transition: background-color 0.3s ease;
-}
-
-.add-book-btn:hover {
-    background-color: #EAB308; /* Darker Yellow */
-}
-
-/* Right Side: Image */
-.image-container {
-    width: 50%;
+    padding: 15px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
     display: flex;
-    justify-content: flex-end;
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
 }
 
-.image-container img {
-    width: 80%;
-    height: auto;
-}
+  
+  li:hover {
+    background: #f1f1f1;
+  }
+  
+  button {
+    background-color: #ff4d4d;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    transition: background 0.3s ease-in-out;
+  }
+  
+  button:hover {
+    background-color: #e60000;
+  }
+  
+  a {
+    text-decoration: none;
+    color: #007bff;
+    font-weight: bold;
+  }
+  
+  a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Center the "No books found!" message */
+  ng-template {
+    text-align: center;
+    font-size: 18px;
+    color: #666;
+  }
+  
