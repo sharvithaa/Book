@@ -1,10 +1,12 @@
-<div class ="container">
+<div class="container">
   <ul *ngIf="books && books.length; else noBooks">
     <li *ngFor="let book of books">
-      <p class=""><span style="font-weight: 900;">Book Name :</span> {{ book.title }}</p>
-      <p><span style="font-weight: 900;">Author Name :</span>{{ book.author }}</p>
-      <button (click)="deleteBook(book._id!)">Delete</button>
-      <a [routerLink]="['/book', book._id]">View Details</a>
+      <p><span style="font-weight: 900;">Book Name :</span> {{ book.title }}</p>
+      <p><span style="font-weight: 900;">Author Name :</span> {{ book.author }}</p>
+      <div style="display: flex;flex-flow: column; justify-content: center; align-items: center; gap: 10px;">
+        <button (click)="deleteBook(book._id!)">Delete</button>
+        <a [routerLink]="['/book', book._id]">View Details</a>
+    </div>
     </li>
   </ul>
 

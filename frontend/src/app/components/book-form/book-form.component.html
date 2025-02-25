@@ -1,16 +1,19 @@
-<h2>Add a New Book</h2>
-<form (ngSubmit)="saveBook()">
-  <label>Title:</label>
-  <input type="text" [(ngModel)]="title" name="title" required />
+<div class="container">
+  <h2 class="heading">Add a New Book</h2>
+  <form class="form" (ngSubmit)="saveBook()">
+    <label>Title:</label>
+    <input class="input" type="text" [(ngModel)]="title" name="title" required />
 
-  <label>Author:</label>
-  <input type="text" [(ngModel)]="author" name="author" required />
+    <label>Author:</label>
+    <input class="input" type="text" [(ngModel)]="author" name="author" required />
 
-  <label>Genre:</label>
-  <input type="text" [(ngModel)]="genre" name="genre" required />
+    <label>Genre:</label>
+    <input class="input" type="text" [(ngModel)]="genre" name="genre" required />
 
-  <label>Published Year:</label>
-  <input type="number" [(ngModel)]="publishedYear" name="publishedYear" required />
-
-  <button type="submit">Save Book</button>
-</form>
+    <label>Published Year:</label>
+    <input class="input" type="number" [(ngModel)]="publishedYear" name="publishedYear" required />
+    <div style="display: flex;flex-flow: column; justify-content: center; align-items: center; gap: 10px;">
+      <button class="submit-btn" type="submit">Save Book</button>
+    </div>
+  </form>
+</div>

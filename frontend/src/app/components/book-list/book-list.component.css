@@ -2,6 +2,7 @@
     /* display: grid;
     grid-template-columns: repeat(3,1fr); */
     padding: 20px;
+    
   }
   
   ul {
@@ -39,6 +40,8 @@ li {
     border-radius: 4px;
     cursor: pointer;
     transition: background 0.3s ease-in-out;
+    width: 10rem;
+    
   }
   
   button:hover {

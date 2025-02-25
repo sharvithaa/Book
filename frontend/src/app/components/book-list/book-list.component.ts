@@ -16,15 +16,15 @@ export class BookListComponent {
   ngOnInit() {
     this.http.get<any>('http://localhost:4000/api/books').subscribe(
       response => {
-        console.log("API Response:", response); // Debugging
-        if (response && response.data) {  // ✅ Fix: Use `data` instead of `books`
+        console.log("API Response:", response); 
+        if (response && response.data) {  
           this.books = response.data;
         } else {
           console.error("Unexpected API Response Format:", response);
         }
       },
       error => {
-        console.error("API Error:", error); // ✅ Log API error
+        console.error("API Error:", error); 
       }
     );
   }
